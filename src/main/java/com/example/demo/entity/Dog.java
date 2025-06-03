@@ -22,18 +22,15 @@ public class Dog {
 
     private String origin;
 
-    private String category; // e.g., breed group or classification
-
     // constructors
     public Dog() {
     }
 
-    public Dog(String name, String desc, String otherNames, String origin, String category) {
+    public Dog(String name, String desc, String otherNames, String origin) {
         this.name = name;
         this.desc = desc;
         this.otherNames = otherNames;
         this.origin = origin;
-        this.category = category;
     }
 
     // getters and setters
@@ -75,13 +72,5 @@ public class Dog {
 
     public void setOrigin(String origin) {
         this.origin = origin;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 }

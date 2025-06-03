@@ -182,3 +182,50 @@ A Dog object with the updates.
   "origin": "Japan",
 }
 ```
+
+### [`/dogId`](http://localhost:8080/dogs/6) (DELEETE)
+Deletes an existing Dog.
+
+#### Parameters
+- Path Variable: `dogId`
+
+#### Response - The updated list of dogs.
+```
+[
+  {
+    "dogId": 1,
+    "name": "French Bulldog",
+    "desc": "Read more",
+    "otherNames": "Bouledogue Français",
+    "origin": "France",
+  },
+  {
+    "dogId": 2,
+    "name": "Labrador Retriever",
+    "desc": "Read more",
+    "otherNames": "Labrador",
+    "origin": "United Kingdom",
+  },
+  {
+    "dogId": 3,
+    "name": "Golden Retriever",
+    "desc": "Read more",
+    "otherNames": "Flat-coated Retriever, Golden Yellow",
+    "origin": "Scotland",
+  },
+  {
+    "dogId": 4,
+    "name": "Bulldog",
+    "desc": "Read more",
+    "otherNames": "English Bulldog, British Bulldog",
+    "origin": "England",
+  },
+  {
+    "dogId": 5,
+    "name": "Poodle",
+    "desc": "Read more",
+    "otherNames": "Pudel, Caniche",
+    "origin": "Germany",
+  }
+]
+```

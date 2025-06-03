@@ -72,3 +72,21 @@ Gets a list of all dog breeds in the database.
   }
 ]
 ```
+
+2. ### [`/{dogId}`](http://localhost:8080/dogs/1)
+Gets an individual Dog in the system. Each dog is identified by a numeric `dogId`.
+
+#### Parameters
+- Path Variable: `dogId`
+
+#### Response - A single Dog
+
+```
+  {
+    "dogId": 1,
+    "name": "French Bulldog",
+    "desc": "Read more",
+    "otherNames": "Bouledogue Français",
+    "origin": "France",
+  }
+```

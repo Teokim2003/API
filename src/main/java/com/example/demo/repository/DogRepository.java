@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface DogRepository extends JpaRepository<Dog, Long> {
-    List<Dog> findByCategory(String category);
+    List<Dog> findByOrigin(String origin);
     List<Dog> findByNameContainingIgnoreCase(String name);
 }

@@ -11,7 +11,7 @@ public class Dog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long dogId;
 
     private String name;
 
@@ -37,12 +37,12 @@ public class Dog {
     }
 
     // getters and setters
-    public Long getId() {
-        return id;
+    public Long getDogId() {
+        return dogId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDogId(Long id) {
+        this.dogId = id;
     }
 
     public String getName() {

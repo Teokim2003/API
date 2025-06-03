@@ -183,7 +183,7 @@ A Dog object with the updates.
 }
 ```
 
-### [`/dogId`](http://localhost:8080/dogs/6) (DELEETE)
+### [`/dogId`](http://localhost:8080/dogs/6) (DELETE)
 Deletes an existing Dog.
 
 #### Parameters

@@ -21,16 +21,16 @@ public class DogService {
         return dogRepository.findAll();
     }
 
-    public Optional<Dog> getDogById(Long id) {
-        return dogRepository.findById(id);
+    public Optional<Dog> getDogById(Long dogId) {
+        return dogRepository.findById(dogId);
     }
 
     public Dog addDog(Dog dog) {
         return dogRepository.save(dog);
     }
 
-    public Dog updateDog(Long id, Dog updatedDog) {
-        return dogRepository.findById(id).map(dog -> {
+    public Dog updateDog(Long dogId, Dog updatedDog) {
+        return dogRepository.findById(dogId).map(dog -> {
             dog.setName(updatedDog.getName());
             dog.setDesc(updatedDog.getDesc());
             dog.setOtherNames(updatedDog.getOtherNames());
@@ -40,8 +40,8 @@ public class DogService {
         }).orElse(null);
     }
 
-    public void deleteDog(Long id) {
-        dogRepository.deleteById(id);
+    public void deleteDog(Long dogId) {
+        dogRepository.deleteById(dogId);
     }
 
     public List<Dog> getDogsByCategory(String category) {

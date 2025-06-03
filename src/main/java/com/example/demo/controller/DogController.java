@@ -46,9 +46,9 @@ public class DogController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/category/{category}")
-    public List<Dog> getDogsByCategory(@PathVariable String category) {
-        return dogService.getDogsByCategory(category);
+    @GetMapping("/origin/{origin}")
+    public List<Dog> getDogsByOrigin(@PathVariable String origin) {
+        return dogService.getDogsByOrigin(origin);
     }
 
     @GetMapping("/search")

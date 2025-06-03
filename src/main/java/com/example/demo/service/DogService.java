@@ -35,7 +35,6 @@ public class DogService {
             dog.setDesc(updatedDog.getDesc());
             dog.setOtherNames(updatedDog.getOtherNames());
             dog.setOrigin(updatedDog.getOrigin());
-            dog.setCategory(updatedDog.getCategory());
             return dogRepository.save(dog);
         }).orElse(null);
     }
@@ -44,8 +43,8 @@ public class DogService {
         dogRepository.deleteById(dogId);
     }
 
-    public List<Dog> getDogsByCategory(String category) {
-        return dogRepository.findByCategory(category);
+    public List<Dog> getDogsByOrigin(String origin) {
+        return dogRepository.findByOrigin(origin);
     }
 
     public List<Dog> searchDogsByName(String name) {

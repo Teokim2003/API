@@ -18,46 +18,17 @@
   </header>
   <main>
     <section class="gallery">
-      <article>
-        <img src="images/French Bulldog.jpg" alt="French Bulldog">
-        <h2>French Bulldog</h2>
-        <p>
-          <b>Other names:</b> Bouledogue Français<br /><b>Origin:</b> France
-        </p>
-        <a href="details.html">Read more</a>
-      </article>
-      <article>
-        <img src="images/Labrador Retriever.jpg" alt="Labrador Retriever">
-        <h2>Labrador Retriever</h2>
-        <p>
-          <b>Other names:</b> Labrador<br /><b>Origin:</b> United Kingdom
-        </p>
-        <a href="details.html">Read more</a>
-      </article>
-      <article>
-        <img src="images/Golden Retriever.jpg" alt="Golden Retriever">
-        <h2>Golden Retriever</h2>
-        <p>
-          <b>Other names:</b> Flat-coated Retriever, Golden Yellow<br /><b>Origin:</b> Scotland
-        </p>
-        <a href="details.html">Read more</a>
-      </article>
-      <article>
-        <img src="images/Bulldog.jpg" alt="Bulldog">
-        <h2>Bulldog</h2>
-        <p>
-          <b>Other names:</b> English Bulldog, British Bulldog<br /><b>Origin:</b> England
-        </p>
-        <a href="details.html">Read more</a>
-      </article>
-      <article>
-        <img src="images/Poodle.jpg" alt="Poodle">
-        <h2>Poodle</h2>
-        <p>
-          <b>Other names:</b> Pudel, Caniche<br /><b>Origin:</b> German/French
-        </p>
-        <a href="details.html">Read more</a>
-      </article>
+      <#list dogList as dog>
+        <article>
+          <img src="${dog.imageURL!'Insert here'}" alt="${dog.name!'Insert here'}">
+          <h2>${dog.name!'Insert here'}</h2>
+          <p>
+            <b>Other names:</b> ${dog.otherNames}<br />
+            <b>Origin:</b> ${dog.origin}
+          </p>
+          <a href="details.html?name=${dog.name?url}">Read more</a>
+        </article>
+      </#list>
     </section>
   </main>
   <script src="js/main.js"></script>

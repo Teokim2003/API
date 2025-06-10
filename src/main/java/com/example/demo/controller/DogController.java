@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-=======
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -20,17 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
->>>>>>> af3c2637e8e0cbec5e68d87d4189115b263c25db
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Dog;
 import com.example.demo.service.DogService;
 
 @Controller
-<<<<<<< HEAD
-=======
 @RequestMapping("/api/dogs")
->>>>>>> af3c2637e8e0cbec5e68d87d4189115b263c25db
 public class DogController {
 
     @Autowired

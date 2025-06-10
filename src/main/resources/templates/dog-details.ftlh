@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>${dogName!'Insert here'}</title>
   <title>French Bulldog</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <h1>French Bulldog</h1>
+    <h1>${dogName!'Insert here'}</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -17,10 +18,13 @@
     </nav>
   </header>
   <main>
-    <img src="images/French Bulldog.jpg" alt="French Bulldog">
+    <img src="${imageURL!'Insert here'}" alt="${dogName|'Insert here'}">
     <h2>Details</h2>
     <p>
-      French bulldogs are a dog breed originating from France that are crossbred from toy bulldogs and local Parisian ratters. They are known for their affectionate nature and balanced disposition.<br /><br /><b>Other names:</b> Bouledogue Français<br /><b>Origin:</b> France
+      ${desc!'Insert here'}
+      <br /><br />
+      <b>Other names:</b> ${otherNames!'Insert here'}<br />
+      <b>Origin:</b> ${origin!'Insert here'}
     </p>
   </main>
   <script src="js/main.js"></script>

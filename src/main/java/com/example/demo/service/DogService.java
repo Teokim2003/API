@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Dog;
 import com.example.demo.repository.DogRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class DogService {
@@ -50,4 +53,25 @@ public class DogService {
     public List<Dog> searchDogsByName(String name) {
         return dogRepository.findByNameContainingIgnoreCase(name);
     }
+
+  public String writeJson(Dog dog) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      objectMapper.writeValue(new File("dogs.json"), dog);
+      return "Dog written to JSON file successfully";
+    } catch (IOException e) {
+      e.printStackTrace();
+      return "Error writing dog to JSON file";
+    }
+  }
+
+  public Object readJson() {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(new File("dogs.json"), Dog.class);
+    } catch (IOException e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
 }

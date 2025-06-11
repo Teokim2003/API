@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <title>Update Dog Breed - ${dog.name}</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
   <header>
     <h1>Update Dog Breed: ${dog.name}</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="dog-list.ftlh">Breed List</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="/dogs">Breed List</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <form action="/dogs/update" method="post">
-      <!-- Hidden input for identifying the dog, e.g. by id or original name -->
       <input type="hidden" name="id" value="${dog.id}" />
 
       <label for="name">Breed Name:</label><br />
@@ -31,8 +29,8 @@
       <label for="origin">Origin:</label><br />
       <input type="text" id="origin" name="origin" value="${dog.origin}" required /><br /><br />
 
-      <label for="imageURL">Image URL (relative to images/):</label><br />
-      <input type="text" id="imageURL" name="imageURL" value="${dog.imageURL!'Insert here'}" /><br /><br />
+      <label for="imageURL">Image URL:</label><br />
+      <input type="text" id="imageURL" name="imageURL" value="${dog.imageURL!''}" /><br /><br />
 
       <label for="desc">Description:</label><br />
       <textarea id="desc" name="desc" rows="5" cols="40">${dog.desc}</textarea><br /><br />
@@ -41,6 +39,6 @@
     </form>
   </main>
 
-  <script src="js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

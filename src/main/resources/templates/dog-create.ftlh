@@ -30,8 +30,8 @@
       <label for="imageURL">Image URL:</label><br />
       <input type="text" id="imageURL" name="imageURL" placeholder="images/French Bulldog.jpg" /><br /><br />
 
-      <label for="description">Description:</label><br />
-      <textarea id="description" name="description" rows="5" cols="40"></textarea><br /><br />
+      <label for="desc">Description:</label><br />
+      <textarea id="desc" name="desc" rows="5" cols="40"></textarea><br /><br />
 
       <button type="submit">Add Breed</button>
     </form>

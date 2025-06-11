@@ -30,7 +30,8 @@ public class DogController {
         model.addAttribute("title", "All Dogs");
         return "dog-list";  // Renders dog-list.ftlh
     }
-
+    
+    // Get dogs by their IDs
     @GetMapping("/dogs/{id}")
     public String getDogById(@PathVariable long dogId, Model model) {
         Optional<Dog> dog = dogService.getDogById(dogId);
@@ -43,6 +44,7 @@ public class DogController {
         }
     }
 
+    // Get dogs by their names
     @GetMapping("/dogs/name")
     public Object searchDogsByName(@RequestParam String key, Model model) {
         if (key != null && !key.isEmpty()) {
@@ -55,6 +57,7 @@ public class DogController {
         }
     }
 
+    // Get dogs by their origin
     @GetMapping("/dogs/origin/{origin}")
     public Object getDogsByOrigin(@PathVariable String origin, Model model) {
         model.addAttribute("dogList", dogService.getDogsByOrigin(origin));

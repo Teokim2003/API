@@ -1,21 +1,19 @@
 package com.example.demo.controller;
 
-import org.springframework.http.ResponseEntity;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Dog;
 import com.example.demo.service.DogService;
 
 @Controller
-@RequestMapping("/api/dogs")
 public class DogController {
 
     @Autowired
@@ -34,10 +32,15 @@ public class DogController {
     }
 
     @GetMapping("/dogs/{id}")
-    public Object getDogById(@PathVariable long id, Model model) {
-        model.addAttribute("dog", dogService.getDogById(id));
-        model.addAttribute("title", "Dog #: " + id);
-        return "dog-details";
+    public String getDogById(@PathVariable long dogId, Model model) {
+        Optional<Dog> dog = dogService.getDogById(dogId);
+        if (dog.isPresent()) {
+            model.addAttribute("dog", dog.get());
+            model.addAttribute("title", "Dog #: " + dogId);
+            return "dog-details";
+        } else {
+            return "redirect:/dogs"; // Or show an error page
+        }
     }
 
     @GetMapping("/dogs/name")
@@ -77,34 +80,28 @@ public class DogController {
 
     // Show dog details or edit form
     @GetMapping("/dogs/updateForm/{id}")
-    public Object showUpdateForm(@PathVariable Long id, Model model) {
-        Dog dog = dogService.getDogById(id);
-        model.addAttribute("dog", dog);
-        model.addAttribute("title", "Update Dog: " + id);
-        return "dog-update";
+    public String showUpdateForm(@PathVariable Long dogId, Model model) {
+        Optional<Dog> dog = dogService.getDogById(dogId);
+        if (dog.isPresent()) {
+            model.addAttribute("dog", dog.get());
+            model.addAttribute("title", "Update Dog: " + dogId);
+            return "dog-update";
+        } else {
+            return "redirect:/dogs";
+        }
     }
 
     // Handle form submit to update a dog
     @PostMapping("/dogs/update/{id}")
-    public Object updateDog(@PathVariable Long id, Dog dog) {
-        dogService.updateDog(id, dog);
-        return "redirect:/dogs/" + id;
+    public Object updateDog(@PathVariable Long dogId, Dog dog) {
+        dogService.updateDog(dogId, dog);
+        return "redirect:/dogs/" + dogId;
     }
 
     // Delete a dog by ID
     @GetMapping("/dogs/delete/{id}")
-    public Object deleteDog(@PathVariable Long id) {
-        dogService.deleteDog(id);
+    public Object deleteDog(@PathVariable Long dogId) {
+        dogService.deleteDog(dogId);
         return "redirect:/dogs";
-    }
-
-    @PostMapping("/dogs/writeFile")
-    public Object writeJson(@RequestBody Dog dog) {
-        return dogService.writeJson(dog);
-    }
-
-    @GetMapping("/dogs/readFile")
-    public Object readJson() {
-        return dogService.readJson();
     }
 }

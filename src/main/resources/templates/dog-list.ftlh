@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Dog Breeds</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header>
-    <h1>Index</h1>
+    <h1>All Dogs</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="details.html">Details</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="/dogs/createForm">Add Dog</a></li>
+        <li><a href="/about">About</a></li>
       </ul>
     </nav>
   </header>
@@ -23,14 +22,14 @@
           <img src="${dog.imageURL!'Insert here'}" alt="${dog.name!'Insert here'}">
           <h2>${dog.name!'Insert here'}</h2>
           <p>
-            <b>Other names:</b> ${dog.otherNames}<br />
-            <b>Origin:</b> ${dog.origin}
+            <b>Other names:</b> ${dog.otherNames!'Insert here'}<br />
+            <b>Origin:</b> ${dog.origin!'Insert here'}
           </p>
-          <a href="details.html?name=${dog.name?url}">Read more</a>
+          <a href="/dogs/${dog.id}">Read more</a>
         </article>
       </#list>
     </section>
   </main>
-  <script src="js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
